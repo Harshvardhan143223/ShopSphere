@@ -27,7 +27,6 @@ const { Order } = require('./model/Order');
 
 console.log(process.env)
 
-// Webhook
 
 // TODO: we will capture actual order after deploying out server live on public URL
 

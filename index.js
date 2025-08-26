@@ -32,7 +32,7 @@ console.log(process.env)
 // TODO: we will capture actual order after deploying out server live on public URL
 
 const endpointSecret = process.env.ENDPOINT_SECRET;
-
+const stripe = require("stripe")(process.env.STRIPE_SERVER_KEY);
 server.post('/webhook', express.raw({type: 'application/json'}), async (request, response) => {
   const sig = request.headers['stripe-signature'];
 
@@ -168,7 +168,7 @@ passport.deserializeUser(function (user, cb) {
 
 
 
-const stripe = require("stripe")(process.env.STRIPE_SERVER_KEY);
+//const stripe = require("stripe")(process.env.STRIPE_SERVER_KEY);
 server.post("/create-payment-intent", async (req, res) => {
   const { totalAmount, orderId } = req.body;
 
